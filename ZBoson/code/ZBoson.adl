@@ -7,10 +7,6 @@ info analysis
   lumi 10000
   doi "10.1051/epjconf/202024508026"
 
-
-### Some Issues
-## lep_theta is recognized as lep_eta by ADL/Cutlang
-
 SkipHistos = 1
 
 # OBJECT SELECTION
@@ -45,9 +41,10 @@ define leadLep = goodLeps[0]
 define subleadLep = goodLeps[1]
 define Zll = leadLep subleadLep
 
-#define scaleFactor = scaleFactor_ELE*scaleFactor_MUON*scaleFactor_LepTRIGGER*scaleFactor_PILEUP
-define totWeight =  mcWeight*scaleFactor/Abs(mcWeight)
-#define totWeight = 1.0
+define Lumi = 10064.0 #10 fb-1
+define SFactor = scaleFactor_ELE*scaleFactor_MUON*scaleFactor_LepTRIGGER*scaleFactor_PILEUP
+define totWeight =  mcWeight*SFactor*XSection*Lumi/SumWeights
+define totWeightAuto = HSTEP(channelNumber < 310000) * 1 + HSTEP(channelNumber < 310000) *totWeight 
 
 histoList leadlepHistos
   histo hleadleptPt,"Leading Lepton Transverse Momentum;p_{T}^{leadlep}[GeV];Events/bin ", 20, 0, 200, Pt(leadLep)
@@ -71,16 +68,17 @@ region Zll
   select q(leadLep)*q(subleadLep) < 0
   select Abs(pdgID(leadLep)) == Abs(pdgID(subleadLep))
   select Abs(m(Zll) - 91.18 ) < 25
-  weight myweight totWeight
+  weight myweight totWeightAuto
   leadlepHistos
+  subleadlepHistos
   histo hmLL, "Mass of Dilepton System; m_{ll} [GeV];Events / bin", 30, 68.0, 114.0, m(Zll)
 
 region Zee
   Zll
   select Abs(pdgID(leadLep)) == 11
-  histo heemLL, "Mass of Dilepton System; m_{ll} [GeV];Events / bin", 30, 68.0, 114.0, m(Zll)
+  histo heemLL, "Mass of Dilepton System; m_{#mu#mu} [GeV];Events / bin", 30, 68.0, 114.0, m(Zll)
 
 region Zmm
   Zll
   select Abs(pdgID(leadLep)) == 13
-  histo hmmmLL, "Mass of Dilepton System; m_{ll} [GeV];Events / bin", 30, 68.0, 114.0, m(Zll)
+  histo hmmmLL, "Mass of Dilepton System; m_{ee} [GeV];Events / bin", 30, 68.0, 114.0, m(Zll)
