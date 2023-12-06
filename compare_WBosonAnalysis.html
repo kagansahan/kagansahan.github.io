@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <style>
+        .grid-container {
+            display: grid;
+            grid-template-columns: auto auto;
+            padding: 10px;
+        }
+
+        .grid-item {
+            background-color: rgba(255, 255, 255, 0.8);
+            border: 1px solid rgba(0, 0, 0, 0.8);
+            padding: 20px;
+            font-size: 30px;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="grid-container">
+        <div class="grid-item">
+            <h2>Results of Cutlang code implemented from <a
+                href="https://github.com/atlas-outreach-data-tools/atlas-outreach-cpp-framework-13tev/blob/master">atlas-outreach-cpp-13TeV-framework</a></h2> <br>
+            <a href="WBosonAnalysis/WBosonAnalysis.adl.txt">Code</a>
+        </div>
+        <div class="grid-item">
+            <h2>Results of C code from <a href="https://github.com/atlas-outreach-data-tools/atlas-outreach-cpp-framework-13tev/blob/master">atlas-outreach-cpp-13TeV-framework</a> </h2>
+            <a href="https://github.com/atlas-outreach-data-tools/atlas-outreach-cpp-framework-13tev/blob/master/Analysis/WBosonAnalysis/WBosonAnalysis.C">Code</a>
+        </div>
+        
+        <div class="grid-item">
+            For Wenu <br>
+            Yields: <br> Data: 2.45915e+07<br> W: 2.35559e+07<br> Z: 276521<br> diboson: 47149.6<br> ttbar: 301495<br> stop: 68957.4<br> Total pred.:
+            2.425e+07 <br> <hr>
+            For Wmunu <br>
+            Yields:<br>Data: 2.94745e+07<br> W: 2.73763e+07<br> Z: 1.0388e+06<br> diboson: 45641.6<br> ttbar: 273428<br> stop: 65651.1<br> Total pred.:
+            2.87998e+07 <hr>
+            For Wlnu <br>
+            Yields:<br>Data: 5.4066e+07<br> W: 5.09322e+07<br> Z: 1.31532e+06<br> diboson: 92791.2<br> ttbar: 574923<br> stop: 134609<br> Total pred.:
+            5.30498e+07 <br>
+        </div>
+
+        <div class="grid-item">
+            For Wenu <br> 
+            Yields: <br>Data: 2.45915e+07<br> W: 2.37362e+07<br> Z: 276521<br> diboson: 47149.6<br> ttbar: 302046<br> stop: 66391.1<br> Total pred.:
+            2.44284e+07<br> <hr>
+            For Wmunu <br> 
+            Yields:<br>Data: 2.94745e+07<br> W: 2.75153e+07<br> Z: 1.0388e+06<br> diboson: 45641.6<br> ttbar: 273927<br> stop: 63119.7<br> Total pred.:
+            2.89368e+07 <hr>
+            For Wlnu <br>
+            Yields:<br>Data: 5.4066e+07<br> W: 5.12515e+07<br> Z: 1.31532e+06<br> diboson: 92791.2<br> ttbar: 575973<br> stop: 129511<br> Total pred.:
+5.33651e+07
+            
+
+        </div>
+        
+        <!-- Lepton Eta-->
+        <div class="grid-item">
+            <img src="WBosonAnalysis/histograms_CL/Wlnu/hleadleptEta.png" alt="">
+        </div>
+
+        <div class="grid-item">
+            <img src="WBosonAnalysis/histograms_cpp/hist_leadlepteta.png" alt="">
+        </div>
+        <!-- Lepton Phi -->
+        <div class="grid-item">
+            <img src="WBosonAnalysis/histograms_CL/Wlnu/hleadleptPhi.png" alt="">
+        </div>
+        
+        <div class="grid-item">
+            <img src="WBosonAnalysis/histograms_cpp/hist_leadleptphi.png" alt="">
+        </div>
+        <!--Lepton Pt -->
+        <div class="grid-item">
+            <img src="WBosonAnalysis/histograms_CL/Wlnu/hleadleptPt.png" alt="">
+        </div>
+        
+        <div class="grid-item">
+            <img src="WBosonAnalysis/histograms_cpp/hist_leadleptpt.png" alt="">
+        </div>
+        <!-- Lepton Energy -->
+        <div class="grid-item">
+            <img src="WBosonAnalysis/histograms_CL/Wlnu/hleadleptE.png" alt="">
+        </div>
+        
+        <div class="grid-item">
+            <img src="WBosonAnalysis/histograms_cpp/hist_leadleptE.png" alt="">
+        </div>
+
+        <!-- Number of jets -->
+        <div class="grid-item">
+            <img src="WBosonAnalysis/histograms_CL/Wlnu/hjetsN.png" alt="">
+        </div>
+        
+        <div class="grid-item">
+            <img src="WBosonAnalysis/histograms_cpp/hist_n_jets.png" alt="">
+        </div>
+        <!-- Missing energy -->
+        <div class="grid-item">
+            <img src="WBosonAnalysis/histograms_CL/Wlnu/hmissEt.png" alt="">
+        </div>
+        
+        <div class="grid-item">
+            <img src="WBosonAnalysis/histograms_cpp/hist_etmiss.png" alt="">
+        </div>
+        <!-- transverse mass eelctron -->
+        <div class="grid-item">
+            <img src="WBosonAnalysis/histograms_CL/Wenu/henuMt.png" alt="">
+        </div>
+        
+        <div class="grid-item">
+            <img src="WBosonAnalysis/histograms_cpp/hist_mtw_enu.png" alt="">
+        </div>
+        <!-- Transverse Mass - muon neutrino -->
+        <div class="grid-item">
+            <img src="WBosonAnalysis/histograms_CL/Wmunu/hmunuMt.png" alt="">
+        </div>
+        
+        <div class="grid-item">
+            <img src="WBosonAnalysis/histograms_cpp/hist_mtw_munu.png" alt="">
+        </div>
+    </div>
+</body>
+
+</html>
