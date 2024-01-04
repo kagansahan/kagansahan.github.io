@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <style>
+        .grid-container {
+            display: grid;
+            grid-template-columns: auto auto;
+            padding: 10px;
+        }
+
+        .grid-item {
+            background-color: rgba(255, 255, 255, 0.8);
+            border: 1px solid rgba(0, 0, 0, 0.8);
+            padding: 20px;
+            font-size: 30px;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="grid-container">
+        <div class="grid-item">
+            <h2>Results of Cutlang code implemented from <a
+                href="https://github.com/atlas-outreach-data-tools/atlas-outreach-cpp-framework-13tev/blob/master">atlas-outreach-cpp-13TeV-framework</a></h2> <br>
+            <a href="HyyAnalysis/HyyAnalysis.adl.txt">Code</a>
+        </div>
+        <div class="grid-item">
+            <h2>Results of C code from <a href="https://github.com/atlas-outreach-data-tools/atlas-outreach-cpp-framework-13tev/blob/master">atlas-outreach-cpp-13TeV-framework</a> </h2>
+            <a href="HyyAnalysis/HyyAnalysis.C.txt">Code</a>
+        </div>
+        
+        <div class="grid-item">
+            Yields :
+            <hr>
+            For diphoton invariant-mass spectrum (inclusive): <br>
+            Signal events          (data): 76545 <br>
+            Expected signal events (ggH) : 357.747 <br>
+            Expected signal events (VBF) : 29.9666 <br>
+            Expected signal events (WH)  : 5.62034 <br>
+            Expected signal events (ZH)  : 5.30956 <br>
+            Expected signal events (ttH) : 0.00888649 <br>
+            Expected signal events (all) : 398.653 <hr>
+            For diphoton invariant-mass spectrum <br> (two unconverted central photons): <br>
+            Signal events          (data): 8593 <br>
+            Expected signal events (ggH) : 52.7956 <br>
+            Expected signal events (VBF) : 4.55411 <br>
+            Expected signal events (WH)  : 0.741175 <br>
+            Expected signal events (ZH)  : 0.737633 <br>
+            Expected signal events (ttH) : 0.0016348 <br>
+            Expected signal events (all) : 58.8302 <br>
+        </div>
+        <div class="grid-item">
+            Yields :
+            <hr>
+            For diphoton invariant-mass spectrum (inclusive): <br>
+            Signal events (data): 76394<br>
+            Expected signal events (ggH) : 357.183<br>
+            Expected signal events (VBF) : 29.8599<br>
+            Expected signal events (WH) : 5.59302<br>
+            Expected signal events (ZH) : 5.28605<br>
+            Expected signal events (ttH) : 0.00881873<br>
+            Expected signal events (all) : 397.93 <hr>
+            For diphoton invariant-mass spectrum <br> (two unconverted central photons): <br>
+            Signal events (data): 8582<br>
+            Expected signal events (ggH) : 52.7715<br>
+            Expected signal events (VBF) : 4.54284<br>
+            Expected signal events (WH) : 0.73898<br>
+            Expected signal events (ZH) : 0.7352<br>
+            Expected signal events (ttH) : 0.00162195<br>
+            Expected signal events (all) : 58.7901 <hr>
+        </div>
+
+        <div class="grid-item">
+            === Fitting a 3rd-order polynomial + Gaussian to data == <br>
+             FCN=19.0958 STATUS=NOT POSDEF 23 CALLS 158 TOTAL<br>
+             EDM=4.04943e-13 FROM HESSE STRATEGY= 1 ERR MATRIX NOT POS-DEF<br>
+             EXT PARAMETER APPROXIMATE STEP FIRST <br>
+             NO. NAME VALUE ERROR SIZE DERIVATIVE <br>
+             1 p0 9.47008e+04 7.21315e+01 2.25784e-02 3.17037e-09<br>
+             2 p1 -1.78521e+03 7.79025e-01 4.25626e-04 -6.14341e-07<br>
+             3 p2 1.16181e+01 5.36670e-03 2.76996e-06 -5.70436e-05<br>
+             4 p3 -2.57670e-02 2.67128e-05 6.14332e-09 1.00732e-02<br>
+             5 p4 1.19100e+02 fixed <br>
+             6 p5 1.25000e+02 fixed <br>
+             7 p6 2.38000e+00 fixed <br>
+            Chi2/NDF: 0.734453<br>
+             ================================ <br>
+             === Fitting a 3rd-order polynomial + Gaussian to data == <br>
+             FCN=19.8295 FROM HESSE STATUS=NOT POSDEF 25 CALLS 164 TOTAL<br>
+             EDM=1.35905e-13 STRATEGY= 1 ERR MATRIX NOT POS-DEF<br>
+             EXT PARAMETER APPROXIMATE STEP FIRST <br>
+             NO. NAME VALUE ERROR SIZE DERIVATIVE <br>
+             1 p0 1.09911e+04 2.37698e+01 5.24095e-04 5.78567e-09<br>
+             2 p1 -2.06183e+02 2.55782e-01 4.91578e-05 -1.05401e-06<br>
+             3 p2 1.33259e+00 1.75672e-03 3.17715e-07 -9.89615e-05<br>
+             4 p3 -2.93407e-03 8.74165e-06 6.99536e-10 1.82248e-02<br>
+             5 p4 2.32000e+01 fixed <br>
+             6 p5 1.25000e+02 fixed <br>
+             7 p6 1.83000e+00 fixed <br>
+            Chi2/NDF: 0.762672<br>
+             ================================ <br>
+        </div>
+
+        <div class=grid-item>
+            === Fitting a 3rd-order polynomial + Gaussian to data == <br>
+            ****************************************<br>
+            Minimizer is Minuit2 / Migrad<br>
+            Chi2 = 19.9698<br>
+            NDf = 26<br>
+            Edm = 4.54348e-09<br>
+            NCalls = 161<br>
+            p0 = 94287.2 +/- 72.0527 <br>
+            p1 = -1776.37 +/- 0.778158 <br>
+            p2 = 11.5543 +/- 0.00536057 <br>
+            p3 = -0.0256128 +/- 2.66824e-05 <br>
+            p4 = 119.1 (fixed)<br>
+            p5 = 125 (fixed)<br>
+            p6 = 2.38 (fixed)<br>
+            Chi2/NDF: 0.768069<br>
+             ================================ <br>
+            <br>
+             === Fitting a 3rd-order polynomial + Gaussian to data == <br>
+            ****************************************<br>
+            Minimizer is Minuit2 / Migrad<br>
+            Chi2 = 19.8163<br>
+            NDf = 26<br>
+            Edm = 1.95079e-10<br>
+            NCalls = 163<br>
+            p0 = 11002.1 +/- 23.7557 <br>
+            p1 = -206.414 +/- 0.255628 <br>
+            p2 = 1.33405 +/- 0.00175574 <br>
+            p3 = -0.00293681 +/- 8.73688e-06 <br>
+            p4 = 23.2 (fixed)<br>
+            p5 = 125 (fixed)<br>
+            p6 = 1.83 (fixed)<br>
+            Chi2/NDF: 0.762166<br>
+            ================================
+        </div>
+
+        <!-- Diphoton invariant-mass spectrum as observed in the selected diphoton events with two unconverted central photons -->
+        <div class="grid-item">
+            <img src="HyyAnalysis/histograms_CL/histmYYbin1.png" alt="">
+        </div>
+        <div class="grid-item">
+            <img src="HyyAnalysis/histograms_cpp/hist_mYY_bin1.png" alt="">
+        </div>
+
+        <!-- Diphoton invariant-mass spectrum as observed in the selected diphoton events inclusively -->
+        <div class="grid-item">
+            <img src="HyyAnalysis/histograms_CL/histmYYcatbin1.png" alt="">
+        </div>
+        <div class="grid-item">
+            <img src="HyyAnalysis/histograms_cpp/hist_mYY_cat_bin1.png" alt="">
+        </div>
+    </div>
+</body>
+
+</html>
