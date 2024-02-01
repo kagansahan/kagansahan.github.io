@@ -1,0 +1,108 @@
+info analysis
+  title "Review of the 13 TeV ATLAS Open Data release"
+  experiment ATLAS
+  id "ATLOREACH-PUB-2020-001"
+  publication " EPJ Web Conf., 245 (2020) 08026"
+  sqrtS 13.0
+  lumi 10000
+  doi "10.1051/epjconf/202024508026"
+
+SkipHistos = 1 
+
+### OBJECT DEFINITIONS
+object goodEles
+  take ELE
+  select Pt(ELE) > 7.0
+  select lep_ptcone30(ELE)/lep_pt(ELE) <   0.3   
+  select lep_etcone20(ELE)/lep_pt(ELE) <   0.3      
+  select abs(lep_eta(ELE)) <   2.47        
+  select Abs(lep_trackd0pvunbiased(ELE))/lep_tracksigd0pvunbiased(ELE) < 5.0
+  select Abs(lep_z0(ELE))*sin(Theta(ELE))< 0.5
+
+object goodMuos
+  take MUO
+  select Pt(MUO) > 5.0                 
+  select lep_ptcone30(MUO)/lep_pt(MUO) <   0.3       
+  select lep_etcone20(MUO)/lep_pt(MUO) <   0.3      
+  select abs(lep_eta(MUO)) < 2.5 
+  select Abs(lep_trackd0pvunbiased(MUO))/lep_tracksigd0pvunbiased(MUO) < 3.0
+    select Abs(lep_z0(MUO)*sin(Theta(MUO))) < 0.5
+
+object goodLeps : Union(goodEles, goodMuos)
+
+# WEIGHTING
+define SF = scaleFactor_ELE*scaleFactor_MUON*scaleFactor_LepTRIGGER*scaleFactor_PILEUP
+define Lumi = 10064.0
+define mcMcWeight = HSTEP(channelNumber > 310000) * mcWeight*Lumi*XSection*SF/SumWeights 
+define dataWeight = HSTEP(channelNumber < 310000) * 1.0
+define autoWeight = dataWeight + mcMcWeight
+
+### RECONSTRUCTED PARTICLES
+define goodLep1 = goodLeps[-1]
+define goodLep2 = goodLeps[-1]
+define goodLep3 = goodLeps[-2]
+define goodLep4 = goodLeps[-2]
+
+define Z1 = goodLep1 goodLep2
+define Z2 = goodLep3 goodLep4
+
+define FourLepSystem = goodLep1 + goodLep2 + goodLep3 + goodLep4
+
+### EVENT VARIABLES
+define FourLepSystemM = m(FourLepSystem)
+define FourLepSystemPt = Pt(FourLepSystem)
+define FourLepSystemY = Rap(FourLepSystem)
+
+define sumCharges = sum(q(goodLeps))
+define sumTypes = sum(Abs(PDGID(goodLeps)))
+
+### MINIMIZATION VARIABLES
+
+define MassZ = 91.18
+define deltaMZone = Abs(m(Z1) - 91.18)
+define deltaMZtwo = Abs(m(Z2) - 91.18)
+define deltaMZZ = deltaMZtwo - deltaMZone
+define isSFOSZ1 = 1*HSTEP( ( Abs( pdgID(goodLep1) ) == Abs( pdgID(goodLep2) ) ) && ( q(goodLep1) * q(goodLep2) < 0 )  )
+define isSFOSZ2 = 1*HSTEP( ( Abs( pdgID(goodLep3) ) == Abs( pdgID(goodLep4) ) ) && ( q(goodLep3) * q(goodLep4) < 0 )  )
+define Chi2ZZ = Abs(m(Z1) - 91.18) + Abs(m(Z2) - 91.18) + 9999*HSTEP(isSFOSZ1 == 0) + 9999*HSTEP(isSFOSZ2 == 0) + 99999*HSTEP(deltaMZZ<0)
+
+### EVENT SELECTION
+region init
+    weight evtweight autoWeight
+    select Size(goodEles) >= 0
+    select Size(goodMuos) >= 0
+    select Size(goodLeps) >= 0
+    select Size(JET) >= 0
+    sort Pt(goodLeps) descend
+
+region HZZ
+    init
+    select trigE == 1 || trigM == 1
+    select Size(goodLeps) == 4
+    select Pt(goodLeps[0]) > 25
+    select Pt(goodLeps[1]) > 15
+    select Pt(goodLeps[2]) > 10
+    select sumCharges == 0
+    select sumTypes == 44 || (sumTypes == 48 || sumTypes == 52)
+    select Chi2ZZ ~= 0
+
+    ## Global Variable Histograms
+    histo histmLL1, "Mass of Dilepton System; m_{ll,1} [GeV];Events / bin", 30, 50, 106, m(Z1)
+    histo histmLL2, "Mass of Dilepton System; m_{ll,2} [GeV];Events / bin", 30, 12, 140, m(Z2)
+    histo histfourlepsyspt, "Transverse Momentum of four-lepton system; p_{T,4l} [GeV];Events / bin", 20, 0, 200, FourLepSystemPt
+    histo histfourlepsysy , "Rapidity of four-lepton system; y_{4l} ;Events / bin", 20, -3, 3, FourLepSystemY
+    histo histmassextfourlep ,"Mass of four-lepton system; m_{4l} [GeV];Events / bin", 30, 80, 250, FourLepSystemM
+    histo histmassfourlep     ,"Mass of four-lepton system; m_{4l} [GeV];Events / bin", 24, 80, 170, FourLepSystemM
+    ## Lepton Variable Histograms
+    histo histfourleptpt ," Leptons Transverse Momentum;p_{T}^{all lep} [GeV];Leptons / bin ", 5, 0, 200, Pt(goodLeps)
+    histo histfourlepteta," Leptons Pseudorapidity; #eta^{all lep}; Leptons / bin ", 10, -3, 3, Eta(goodLeps)
+    histo histfourleptE  ," Leptons Energy; E^{all lep} [GeV]; Leptons / bin", 10, 0, 300,  E(goodLeps)
+    histo histfourleptphi," Leptons Azimuthal Angle ; #phi^{all lep}; Leptons / bin", 8, -3.2, 3.2, Phi(goodLeps)
+    histo histfourleptch ," Leptons Charge; Q^{all lep}; Leptons / bin", 7, -1.75, 1.75, q(goodLeps)
+    histo histfourleptID ," Leptons Absolute PDG ID; |PDG ID|^{all lep}; Leptons / bin",  15, 5.5, 20.5, Abs(pdgID(goodLeps))
+    histo histnjets, "Number of Jets;N_{jets};Events", 4, -0.5, 3.5, Size(JET)
+    histo deltadelta, "Delta Delta", 200, -100, 100, deltaMZZ
+    histo Z1id, "Z1 id", 30, -20.5, 20.5,  30, -20.5, 20.5, pdgID(goodLep1), pdgID(goodLep2)
+    histo Z2id, "Z2 id", 30, -20.5, 20.5,  30, -20.5, 20.5, pdgID(goodLep3), pdgID(goodLep4)
+    ## Jet Varible Histograms    
+    histo histnjets, "Number of Jets;N_{jets};Events", 4, -0.5, 3.5, Size(JET)

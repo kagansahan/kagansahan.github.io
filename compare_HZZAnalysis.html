@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <style>
+        .grid-container {
+            display: grid;
+            grid-template-columns: auto auto;
+            padding: 10px;
+        }
+
+        .grid-item {
+            background-color: rgba(255, 255, 255, 0.8);
+            border: 1px solid rgba(0, 0, 0, 0.8);
+            padding: 20px;
+            font-size: 30px;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="grid-container">
+        <div class="grid-item">
+            <h2>Results of Cutlang code implemented from <a
+                href="https://github.com/atlas-outreach-data-tools/atlas-outreach-cpp-framework-13tev/blob/master">atlas-outreach-cpp-13TeV-framework</a></h2> <br>
+            <a href="HZZAnalysis/HZZAnalysis.adl.txt">Code</a>
+        </div>
+        <div class="grid-item">
+            <h2>Results of C code from <a href="https://github.com/atlas-outreach-data-tools/atlas-outreach-cpp-framework-13tev/blob/master">atlas-outreach-cpp-13TeV-framework</a> </h2>
+            <a href="HZZAnalysis/HZZAnalysis.C.txt">Code</a>
+        </div>
+        
+        <div class="grid-item">
+            Yields: HZZ/histfourleptpt <br>
+            Data: 1284 <br>
+            Higgs: 33.999 <br>
+            ZZ: 1209.52 <br>
+            Other: 49.1565 <br>
+            Total pred.: 1258.67 <br>
+        </div>
+
+        <div class="grid-item">
+            Yields: hist_fourleptpt <br>
+            Data: 1284 <br>
+            Higgs: 33.9991 <br>
+            ZZ: 1209.51 <br>
+            Other: 49.1565 <br>
+            Total pred.: 1258.67 <br>
+        </div>
+
+        <div class="grid-item">
+            Yields: HZZ/histmLL1 <br>
+            Data: 307 <br>
+            Higgs: 8.26529 <br>
+            ZZ: 287.037 <br>
+            Other: 11.5379 <br>
+            Total pred.: 298.575 <br>
+        </div>
+
+        <div class=grid-item>
+            Yields: hist_mLL1 <br>
+            Data: 291 <br>
+            Higgs: 6.7622 <br>
+            ZZ: 271.167 <br>
+            Other: 9.75853 <br>
+            Total pred.: 280.926 <br>
+        </div>
+
+        <div class="grid-item">
+            Yields : HZZ/histmLL2 <br>
+            Data: 286 <br>
+            Higgs: 7.88843 <br>
+            ZZ: 268.618 <br>
+            Other: 9.12709 <br>
+            Total pred.: 277.745 <br>
+        </div>
+
+        <div class=grid-item>
+            Yields : hist_mLL2 <br>
+            Data: 286 <br>
+            Higgs: 7.91374 <br>
+            ZZ: 270.556 <br>
+            Other: 8.04158 <br>
+            Total pred.: 278.598 <br>
+        </div> 
+        
+        <div class="grid-item">
+            Yields: HZZ/histmassfourlep <br>
+            Data: 321 <br>
+            Higgs: 8.49294 <br>
+            ZZ: 301.188 <br>
+            Other: 12.1743 <br>
+            Total pred.: 313.363 <br>
+        </div>
+
+        <div class=grid-item>
+            Yields: mass_four_lep <br>
+            Data: 95 <br>
+            Higgs: 8.48211 <br>
+            ZZ: 70.4171 <br>
+            Other: 8.08866 <br>
+            Total pred.: 78.5057 <br>
+        </div>                       
+
+        <!-- pseudorapidity of the four selected leptons-->
+        <div class="grid-item">
+            <img src="HZZAnalysis/histograms_HZZAnalysis_CL/hist_fourlepteta.png" alt="">
+        </div>
+        <div class="grid-item">
+            <img src="HZZAnalysis/histograms_HZZAnalysis/hist_fourlepteta.png" alt="">
+        </div>
+
+        <!-- azimuthal angle of the four selected leptons -->
+        <div class="grid-item">
+            <img src="HZZAnalysis/histograms_HZZAnalysis_CL/hist_fourleptphi.png" alt="">
+        </div>
+        <div class="grid-item">
+            <img src="HZZAnalysis/histograms_HZZAnalysis/hist_fourleptphi.png" alt="">
+        </div>
+        <!--  transverse momentum of the four selected leptons -->
+        <div class="grid-item">
+            <img src="HZZAnalysis/histograms_HZZAnalysis_CL/hist_fourleptpt.png" alt="">
+        </div>
+        <div class="grid-item">
+            <img src="HZZAnalysis/histograms_HZZAnalysis/hist_fourleptpt.png" alt="">
+        </div>
+
+        <!--  energy of the four selected leptons -->
+        <div class="grid-item">
+            <img src="HZZAnalysis/histograms_HZZAnalysis_CL/hist_fourleptE.png" alt="">
+        </div>
+        <div class="grid-item">
+            <img src="HZZAnalysis/histograms_HZZAnalysis/hist_fourleptE.png" alt="">
+        </div>
+
+        <!-- invariant masses of the first reconstructed Z-boson candidate-->
+        <div class="grid-item">
+            <img src="HZZAnalysis/histograms_HZZAnalysis_CL/hist_mLL1.png" alt="">
+        </div>
+        <div class="grid-item">
+            <img src="HZZAnalysis/histograms_HZZAnalysis/hist_mLL1.png" alt="">
+        </div>
+        <!-- invariant masses of the second reconstructed Z-boson candidate-->
+        <div class="grid-item">
+            <img src="HZZAnalysis/histograms_HZZAnalysis_CL/hist_mLL2.png" alt="">
+        </div>
+        <div class="grid-item">
+            <img src="HZZAnalysis/histograms_HZZAnalysis/hist_mLL2.png" alt="">
+        </div>
+
+        <!--  jet multiplicity  -->
+        <div class="grid-item">
+            <img src="HZZAnalysis/histograms_HZZAnalysis_CL/hist_n_jets.png" alt="">
+        </div>
+        <div class="grid-item">
+            <img src="HZZAnalysis/histograms_HZZAnalysis/hist_n_jets.png" alt="">
+        </div>
+        
+        <!--  four-lepton invariant mass distribution  -->
+        <div class="grid-item">
+            <img src="HZZAnalysis/histograms_HZZAnalysis_CL/mass_four_lep.png" alt="">
+        </div>
+        <div class="grid-item">
+            <img src="HZZAnalysis/histograms_HZZAnalysis/mass_four_lep.png" alt="">
+        </div>
+    </div>
+</body>
+
+</html>
